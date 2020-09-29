@@ -1,0 +1,56 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: rgb(48, 46, 46);
+  color: white;
+}
+
+.icon {
+  padding: 15px;
+}
+
+.text-button {
+  padding: 15px 20px;
+  background-color: transparent;
+  border: 2px solid white;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+
+.text-button:hover {
+  background-color: #494949;
+}
+
+.first-view {
+  display: flex;
+  height: 30vh;
+  position: relative;
+}
+
+.title-div {
+  text-align: justify;
+  padding-left: 10%;
+  width: 80%;
+  height: 100%;
+  font-size: 1.8em;
+}
+
+.burger {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+
+
+.title-text {
+  font-family: 'Roboto', sans-serif;
+}

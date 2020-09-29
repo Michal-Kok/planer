@@ -1,0 +1,58 @@
+.task-window-div {
+    width: 55vw;
+    height: 27vw;
+    border: 5px solid white;
+    background-color: transparent;
+    justify-content: space-around;
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-container {
+    width: 80%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.task-window-button {
+    font-size: 1.2em;
+    padding: 8px 0;
+    width: 180px;
+}
+
+.tasks {
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+}
+
+.tasks ul {
+    padding: 0;
+    margin: 0;
+}
+
+.tasks li:nth-child(odd) {
+    background-color: #494949;
+}
+
+.tasks li {
+    padding: 15px 0 0 10px;
+    list-style: none;
+    line-height: 40px;
+}
+
+.tasks li span {
+    float: right;
+    padding: 0 10px;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.tasks li span:hover {
+    color: rgb(224, 223, 220);
+}
