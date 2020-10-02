@@ -4,7 +4,7 @@ import './TaskWindow.css';
 class TaskWindow extends Component {
     state = {
         tasks: this.props.tasks,
-        option: 'completed',
+        option: this.props.option,
     }
 
     handleClick = (e) => {
@@ -13,35 +13,37 @@ class TaskWindow extends Component {
         })
     }
 
+    updateTask = (index) => {
+        this.props.updateTask(index);
+    }
+
     showTasks = () => {
         const { completed, failed } = this.state.tasks;
-        const updateTask = this.props.updateTask;
         let tasks = [];
         let index = 0;
+        let updateTask = this.props.updateTask;
         switch (this.state.option) {
             case 'completed':
                 tasks = completed.map((task) => {
                     return (
-                        <li key={index++}>{task}<span index={index} onClick={updateTask}>Crashed</span><span index={index} onClick={updateTask}>Done</span></li>
+                        <li key={index++}>{task}<span onClick={(index) => updateTask(index)}>Crashed</span><span onClick={(index) => updateTask(index)}>Done</span></li>
                     )
                 });
                 return tasks;
 
             case 'failed':
-                index = 0;
                 tasks = failed.map((task) => {
                     return (
-                        <li key={index++}>{task}<span index={index} onClick={updateTask}>Crashed</span><span index={index} onClick={updateTask}>Done</span></li>
+                        <li key={index++}>{task}<span onClick={(index) => updateTask(index)}>Crashed</span><span onClick={(index) => updateTask(index)}>Done</span></li>
                     );
                 });
                 return tasks;
 
             case 'all':
-                index = 0;
                 const allTasks = completed.concat(failed);
                 tasks = allTasks.map((task) => {
                     return (
-                        <li key={index++}>{task}<span index={index} onClick={updateTask}>Crashed</span><span index={index} onClick={updateTask}>Done</span></li>
+                        <li key={index++}>{task}<span onClick={() => this.updateTask(index)}>Crashed</span><span onClick={() => this.updateTask(index)}>Done</span></li>
                     );
                 })
                 return tasks;

@@ -3,18 +3,17 @@ import '@fortawesome/fontawesome-free/js/all.js';
 import './App.css';
 import NavBar from './NavBar';
 import EndedTasks from './EndedTasks';
+import TaskWindow from './TaskWindow';
+import NewTaskForm from './NewTaskForm';
 
 class App extends Component {
 
   state = {
-    completedTasks: false,
-    failedTasks: false,
     navBarStatus: false,
-  }
-
-  tasks = {
-    completed: ['umyć naczynka'],
-    failed: ['zjeść rybeczkę'],
+    tasks: {
+      completed: ['umyć naczynka'],
+      failed: ['zjeść rybeczkę', 'zrobić obiad', 'pouczyć sie javy'],
+    }
   }
 
   handleBurgerClick = () => {
@@ -23,11 +22,36 @@ class App extends Component {
     }))
   }
 
-  updateTask = (e) => {
-    console.log(e.target);
+  updateTask = (index) => {
+    console.log(index);
   }
 
   showPopup = (key) => {
+    console.log(key);
+
+    switch (key) {
+      case 'add':
+        return (
+          <div className='popup'>
+            < NewTaskForm />
+          </div>
+        );
+
+      case 'completed':
+        return (
+          <div className='popup'>
+            < TaskWindow updateTask={this.updateTask} tasks={this.state.tasks} option='completed' />
+          </div>
+        );
+
+      case 'failed':
+        return (
+          < TaskWindow updateTask={this.updateTask} tasks={this.state.tasks} option='failed' />
+        )
+      default:
+        break;
+    }
+
     return (
       <div className='popup'>
 
@@ -48,7 +72,7 @@ class App extends Component {
           </div>
           {this.state.navBarStatus && <NavBar showPopUp={this.showPopup} />}
         </section>
-        < EndedTasks updateTask={this.updateTask} tasks={this.tasks} />
+        < EndedTasks updateTask={this.updateTask} tasks={this.state.tasks} />
       </>
     );
   }
