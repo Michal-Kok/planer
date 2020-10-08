@@ -1,0 +1,10 @@
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.icon i {
+    font-size: 40px;
+    color: white;
+}

@@ -1,6 +1,6 @@
 .task-window-div {
-    width: 55vw;
-    height: 27vw;
+    width: 50%;
+    height: 80%;
     border: 5px solid white;
     background-color: transparent;
     justify-content: space-around;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TaskWindow from './TaskWindow';
-import './EndedTasks.css';
+import './css/EndedTasks.css';
 
 class EndedTasks extends Component {
     state = {
@@ -8,8 +8,8 @@ class EndedTasks extends Component {
     }
 
     buttonConent = {
-        opened: 'Do not waste my time!',
-        closed: 'I want to do something!'
+        opened: 'Ok, it is enough for me!',
+        closed: 'I want to see my results!'
     }
 
     handleClick = () => {
