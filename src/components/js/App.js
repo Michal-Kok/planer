@@ -35,47 +35,87 @@ class App extends Component {
   handleBurgerClick = () => {
     this.setState((prevState) => ({
       navBarStatus: !prevState.navBarStatus,
-    }))
+    }));
   }
 
   setLocalStorage = (task, status) => {
     const { active, completed, failed } = this.state.tasks[0];
+
     switch (status) {
       case 'active':
         active.push(task);
-        this.setState({
-          tasks: [{
-            active,
-          }],
-        });
         break;
       case 'completed':
         completed.push(task);
-        this.setState({
-          tasks: [{
-            completed,
-          }],
-        });
         break;
       case 'failed':
         failed.push(task);
-        this.setState({
-          tasks: [{
-            failed,
-          }],
-        });
         break;
       default:
         break;
     }
+    this.setState({
+      tasks: [{
+        active,
+        completed,
+        failed,
+      }],
+    })
 
     localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
   }
 
+  deleteTask = (index, tasks, key) => {
+    let { active, completed, failed } = this.state.tasks[0];
+    tasks.splice(index, 1);
 
+    switch (key) {
+      case 'active':
+        active = tasks;
+        break;
+      case 'completed':
+        completed = tasks;
+        break;
+      case 'failed':
+        failed = tasks;
+        break;
+      default:
+        const err = new Error('mistake during splicing elements.');
+        console.log(err);
+    }
+    this.setState({
+      tasks: [{
+        active,
+        completed,
+        failed,
+      }]
+    })
+    localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
+  }
 
-  updateTask = () => {
-    console.log();
+  finishedTask = (index, tasks, status) => {
+    let { active, completed, failed } = this.state.tasks[0];
+    const finishedTask = tasks.splice(index, 1)[0];
+    active = tasks;
+
+    switch (status) {
+      case 'success':
+        completed.push(finishedTask);
+        break;
+      case 'failour':
+        failed.push(finishedTask);
+        break;
+      default:
+        const err = new Error('sth wrong with finishing tasks!');
+        console.log(err);
+    }
+    this.setState({
+      tasks: [{
+        active,
+        completed,
+        failed,
+      }]
+    })
   }
 
   showPopUp = () => {
@@ -85,7 +125,7 @@ class App extends Component {
       case 'add':
         return (
           <div className='popup'>
-            <button className="close-button"><span className="icon"><i className="far fa-times-circle"></i></span></button>
+            <button onClick={this.closePopup} className="close-button"><i className="far fa-times-circle"></i></button>
             < NewTaskForm setLocalStorage={this.setLocalStorage} />
           </div>
         );
@@ -93,8 +133,8 @@ class App extends Component {
       case 'active':
         return (
           <div className='popup'>
-            <button className="close-button"><span className="icon"><i className="far fa-times-circle"></i></span></button>
-            <ListOfTasks option='active' tasks={this.state.tasks} />
+            <button className="close-button" onClick={this.closePopup}><i className="far fa-times-circle"></i></button>
+            <ListOfTasks option='active' tasks={this.state.tasks} deleteTask={this.deleteTask} finishedTask={this.finishedTask} />
           </div>
         );
 
@@ -104,18 +144,21 @@ class App extends Component {
     }
   }
 
+  closePopup = () => {
+    this.setState({
+      popUpStatus: {
+        isActivate: false,
+      }
+    })
+  }
+
   activatePopup = (key) => {
     this.setState({
-      popUpStatus:
-      {
+      popUpStatus: {
         isActive: true,
         insidePopUp: key,
       }
     });
-  }
-
-  uptadeTask = () => {
-
   }
 
   addTask = (task) => {
@@ -133,6 +176,7 @@ class App extends Component {
   }
 
   render() {
+    const navBarStatus = this.state.navBarStatus;
     return (
       <>
         <section className='first-view'>
@@ -140,13 +184,13 @@ class App extends Component {
             <h1 className='title-text' >Plan your time here. <span className='icon'><i className="far fa-sticky-note"></i></span></h1>
             <h3 className='title-text'>All you need is to write down your tasks</h3>
             <button className="burger" onClick={this.handleBurgerClick}>
-              <span className='hamburger-box'><span className='hamburger-inner'></span></span>
+              <span className={`hamburger-box ${navBarStatus ? `hamburger--active` : null}`}><span className='hamburger-inner'></span></span>
             </button>
           </div>
-          {this.state.navBarStatus && <NavBar activatePopUp={this.activatePopup} popUpStatus={this.state.popUpStatus} />}
-        </section>
-        < EndedTasks updateTask={this.updateTask} tasks={this.state.tasks} getLocalStorage={this.getLocalStorage} />
-        {this.state.popUpStatus.isActive && this.showPopUp()}
+          {navBarStatus && <NavBar activatePopUp={this.activatePopup} popUpStatus={this.state.popUpStatus} />}
+        </section >
+        < EndedTasks finishedTask={this.finishedTask} deleteTask={this.deleteTask} tasks={this.state.tasks} getLocalStorage={this.getLocalStorage} />
+        { this.state.popUpStatus.isActive && this.showPopUp()}
       </>
     );
   }

@@ -15,7 +15,7 @@ class NewTaskForm extends Component {
         e.preventDefault();
         const content = this.state.inputValue;
         const task = {
-            content: 'zrobic obiad',
+            content: content,
         };
 
         this.props.setLocalStorage(task, 'active');

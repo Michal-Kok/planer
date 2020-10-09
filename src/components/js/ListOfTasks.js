@@ -3,20 +3,20 @@ const ListOfTasks = (props) => {
 
     const { completed, failed, active } = props.tasks[0];
     let tasks = [];
-    console.log(active);
-    let updateTask = props.updateTask;
+    const deleteTask = props.deleteTask;
+    const finishedTask = props.finishedTask;
     switch (props.option) {
         case 'active':
             tasks = active.map((task, index) => {
                 return (
-                    <li key={index}>{task.content}<span onClick={() => updateTask(index)}>Delete</span></li>
+                    <li key={index}>{task.content} <span onClick={() => finishedTask(index, active, 'success')}>Done</span> <span onClick={() => finishedTask(index, active, 'failour')}>Missed</span> <span onClick={() => deleteTask(index, active, 'active')}>Delete</span></li>
                 );
             });
             return (<nav className='tasks'><ul>{tasks}</ul></nav>);
         case 'completed':
             tasks = completed.map((task, index) => {
                 return (
-                    <li key={index}>{task.content}<span onClick={() => updateTask(index)}>Delete</span></li>
+                    <li key={index}>{task.content}<span onClick={() => deleteTask(index, completed, 'completed')}>Delete</span></li>
                 );
             });
             return (<nav className='tasks'><ul>{tasks}</ul></nav>);
@@ -24,7 +24,7 @@ const ListOfTasks = (props) => {
         case 'failed':
             tasks = failed.map((task, index) => {
                 return (
-                    <li key={index}>{task.content}<span onClick={(index) => updateTask()}>Delete</span></li>
+                    <li key={index}>{task.content}<span onClick={() => deleteTask(index, failed, 'failed')}>Delete</span></li>
                 );
             });
             return (<nav className='tasks'><ul>{tasks}</ul></nav>);
@@ -33,7 +33,7 @@ const ListOfTasks = (props) => {
             const allTasks = completed.concat(failed);
             tasks = allTasks.map((task, index) => {
                 return (
-                    <li key={index}>{task.content}<span onClick={() => this.updateTask()}>Delete</span></li>
+                    <li key={index}>{task.content}</li>
                 );
             })
             return (<nav className='tasks'><ul>{tasks}</ul></nav>);

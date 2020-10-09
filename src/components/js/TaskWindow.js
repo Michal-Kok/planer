@@ -23,7 +23,7 @@ class TaskWindow extends Component {
                 <button className='text-button task-window-button' onClick={this.handleClick} name='failed'>Failed Tasks</button>
                 <button className='text-button task-window-button' onClick={this.handleClick} name='all'>All tasks</button>
             </div>
-            <ListOfTasks option={this.state.option} tasks={this.state.tasks} updateTask={this.props.updateTask} />
+            <ListOfTasks option={this.state.option} tasks={this.state.tasks} finishedTask={this.props.finishedTask} deleteTask={this.props.deleteTask} />
         </div>);
     }
 }
