@@ -2,7 +2,7 @@
   "name": "planer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.io/Michal-Kok/planer",
+  "homepage": "http://michal-kok.github.io/planer/",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
     "@testing-library/jest-dom": "^4.2.4",
