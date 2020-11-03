@@ -4,7 +4,7 @@ import './css/EndedTasks.css';
 
 class EndedTasks extends Component {
     state = {
-        taskWindowStatus: false,
+        taskWindowStatus: this.props.taskWindowStatus,
     }
 
     buttonConent = {

@@ -5,6 +5,9 @@ import NavBar from './NavBar';
 import EndedTasks from './EndedTasks';
 import ListOfTasks from './ListOfTasks';
 import NewTaskForm from './NewTaskForm';
+import { ReactComponent as TitleIcon } from './TitleIcon.svg';
+import { gsap } from 'gsap';
+import { TweenMax } from 'gsap/gsap-core';
 
 class App extends Component {
 
@@ -20,6 +23,8 @@ class App extends Component {
       failed: [],
     }]
   }
+  // general variables
+  // methods
 
   getLocalStorage = () => {
     let tasks = localStorage.getItem('tasks');
@@ -140,7 +145,7 @@ class App extends Component {
 
       default:
         const err = new Error('sth wrong with popup');
-        console.log(err);
+        console.error(err);
     }
   }
 
@@ -153,6 +158,7 @@ class App extends Component {
   }
 
   activatePopup = (key) => {
+
     this.setState({
       popUpStatus: {
         isActive: true,
@@ -173,6 +179,18 @@ class App extends Component {
 
   componentDidMount() {
     this.getLocalStorage();
+    // animation of moon
+    gsap.from(".moon", { scale: 0, transformOrigin: 'center', duration: .4 });
+    gsap.from(".crater1", { scale: 0, transformOrigin: 'center', duretion: .4, delay: .8, yoyo: true });
+    gsap.from(".crater2", { scale: 0, transformOrigin: 'center', duretion: .4, delay: 1.2 });
+    gsap.from(".crater3", { scale: 0, transformOrigin: 'center', duretion: .4, delay: 1.6 });
+    gsap.from(".crater4", { scale: 0, transformOrigin: 'center', duretion: .4, delay: 2 });
+    //animation of grass
+    gsap.from(".grass", { duration: 2.5, ease: "bounce.out", y: -1000, delay: 2 });
+    // animation of stars
+    gsap.from(".star1", { x: 100, y: -300, opacity: 0, duration: 1.5, });
+    gsap.from(".star2", { x: 20, y: -200, opacity: 0, duration: 1.5, delay: 0.5 });
+
   }
 
   render() {
@@ -180,16 +198,17 @@ class App extends Component {
     return (
       <>
         <section className='first-view'>
-          <div className='title-div'>
-            <h1 className='title-text' >Plan your time here. <span className='icon'><i className="far fa-sticky-note"></i></span></h1>
-            <h3 className='title-text'>All you need is to write down your tasks</h3>
+          <div className='titleIcon-container'>
+            < TitleIcon />
+          </div>
+          <div >
             <button className="burger" onClick={this.handleBurgerClick}>
               <span className={`hamburger-box ${navBarStatus ? `hamburger--active` : null}`}><span className='hamburger-inner'></span></span>
             </button>
           </div>
           {navBarStatus && <NavBar activatePopUp={this.activatePopup} popUpStatus={this.state.popUpStatus} />}
         </section >
-        < EndedTasks finishedTask={this.finishedTask} deleteTask={this.deleteTask} tasks={this.state.tasks} getLocalStorage={this.getLocalStorage} />
+        < EndedTasks finishedTask={this.finishedTask} deleteTask={this.deleteTask} tasks={this.state.tasks} getLocalStorage={this.getLocalStorage} taskWindowStatus={this.state.popUpStatus.isActive} />
         { this.state.popUpStatus.isActive && this.showPopUp()}
       </>
     );

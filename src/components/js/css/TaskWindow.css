@@ -1,13 +1,35 @@
+.emptyList {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    color: white;
+    font-size: 2.7em;
+    font-family: 'Roboto', sans-serif;
+    align-items: center;
+}
+
+.emptyList-SVGContainer {
+    overflow: hidden;
+    flex-basis: 40%;
+}
+
+.circle {
+    animation: jumping ease .6s infinite alternate;
+}
+
 .task-window-div {
     width: 50%;
-    height: 80%;
     border: 5px solid white;
     background-color: transparent;
-    justify-content: space-around;
     position: absolute;
     top: 57%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 .button-container {
@@ -28,12 +50,13 @@
 .tasks {
     font-size: 1.5em;
     font-family: 'Roboto', sans-serif;
-    text-align: justify;
+    width: 100%;
 }
 
 .tasks ul {
     padding: 0;
     margin: 0;
+    width: 100%;
 }
 
 .tasks li:nth-child(odd) {
@@ -44,15 +67,43 @@
     padding: 15px 0 0 10px;
     list-style: none;
     line-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.tasks li span {
-    float: right;
-    padding: 0 10px;
-    margin: 0 20px;
+.tasks span {
+    padding: 10px;
+    text-align: left;
+}
+
+.tasks-actionButton {
+    width: 4.5rem;
+    height: 2rem;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: .7em;
+    margin-right: 7px;
     cursor: pointer;
+    border: 2px solid white;
+    background-color: transparent;
 }
 
-.tasks li span:hover {
-    color: rgb(224, 223, 220);
+.tasks-actionButton:hover {
+    background-color: var(--main-bgc-color);
+}
+
+.tasks-button-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+@keyframes jumping {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-80px);
+    }
 }

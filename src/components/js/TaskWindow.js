@@ -17,7 +17,8 @@ class TaskWindow extends Component {
 
 
     render() {
-        return (<div className='task-window-div'>
+        return (
+        <div className='task-window-div'>
             <div className="button-container">
                 <button className='text-button task-window-button' onClick={this.handleClick} name='completed'>Completed tasks</button>
                 <button className='text-button task-window-button' onClick={this.handleClick} name='failed'>Failed Tasks</button>

@@ -8,3 +8,36 @@
     font-size: 40px;
     color: white;
 }
+
+.newTaskForm {
+    width: 80%;
+    margin: 3rem auto 0;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.newTaskForm-input {
+    height: 2.3rem;
+    width: 15rem;
+    border: 3px solid black;
+}
+
+.newTaskForm-input::placeholder {}
+
+.newTaskForm-button {
+    width: 10rem;
+    height: 2.9rem;
+    color: white;
+    font-size: 1.2em;
+    background-color: var(--main-bgc-color);
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.newTaskForm-button:hover {
+    background-color: var(--hover-color);
+}

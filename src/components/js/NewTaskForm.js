@@ -24,10 +24,10 @@ class NewTaskForm extends Component {
 
     render() {
         return (
-            <form action="text" onSubmit={this.handleSubmit}>
-                <label htmlFor="task">Wprowadź: </label>
-                <input type="text" name='task' onChange={this.handleInputChange} value={this.state.inputValue} />
-                <button>Dodaj</button>
+            <form action="text" onSubmit={this.handleSubmit} className='newTaskForm'>
+                <label htmlFor="task">Wprowadź zadanie: </label>
+                <input className="newTaskForm-input" type="text" name='task' onChange={this.handleInputChange} value={this.state.inputValue} />
+                <button className="newTaskForm-button">Dodaj</button>
             </form>);
     }
 }
