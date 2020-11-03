@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Michal-Kok/ToDoList/static/css/main.be59a95d.chunk.css",
+    "main.js": "/Michal-Kok/ToDoList/static/js/main.e3ca29d4.chunk.js",
+    "main.js.map": "/Michal-Kok/ToDoList/static/js/main.e3ca29d4.chunk.js.map",
+    "runtime-main.js": "/Michal-Kok/ToDoList/static/js/runtime-main.525b5f48.js",
+    "runtime-main.js.map": "/Michal-Kok/ToDoList/static/js/runtime-main.525b5f48.js.map",
+    "static/js/2.57cd4440.chunk.js": "/Michal-Kok/ToDoList/static/js/2.57cd4440.chunk.js",
+    "static/js/2.57cd4440.chunk.js.map": "/Michal-Kok/ToDoList/static/js/2.57cd4440.chunk.js.map",
+    "index.html": "/Michal-Kok/ToDoList/index.html",
+    "precache-manifest.a73ab88674270bce0a8769e16f92831d.js": "/Michal-Kok/ToDoList/precache-manifest.a73ab88674270bce0a8769e16f92831d.js",
+    "service-worker.js": "/Michal-Kok/ToDoList/service-worker.js",
+    "static/css/main.be59a95d.chunk.css.map": "/Michal-Kok/ToDoList/static/css/main.be59a95d.chunk.css.map",
+    "static/js/2.57cd4440.chunk.js.LICENSE.txt": "/Michal-Kok/ToDoList/static/js/2.57cd4440.chunk.js.LICENSE.txt",
+    "static/media/TitleIcon.59a274d8.svg": "/Michal-Kok/ToDoList/static/media/TitleIcon.59a274d8.svg",
+    "static/media/emptiness.8606d994.svg": "/Michal-Kok/ToDoList/static/media/emptiness.8606d994.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.525b5f48.js",
+    "static/js/2.57cd4440.chunk.js",
+    "static/css/main.be59a95d.chunk.css",
+    "static/js/main.e3ca29d4.chunk.js"
+  ]
+}
