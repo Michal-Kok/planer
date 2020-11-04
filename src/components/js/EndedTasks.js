@@ -4,7 +4,7 @@ import './css/EndedTasks.css';
 
 class EndedTasks extends Component {
     state = {
-        taskWindowStatus: this.props.taskWindowStatus,
+        taskWindowStatus: false,
     }
 
     buttonConent = {
@@ -23,7 +23,7 @@ class EndedTasks extends Component {
         const { opened, closed } = this.buttonConent;
         return (
             <section className="ended-tasks">
-                <button className='text-button show-task-window' onClick={this.handleClick} >{this.state.taskWindowStatus ? opened : closed}</button>
+                <button className='text-button show-taskWindow-button' onClick={this.handleClick} >{this.state.taskWindowStatus ? opened : closed}</button>
                 { this.state.taskWindowStatus && < TaskWindow deleteTask={this.props.deleteTask} finishedTask={this.props.finishedTask} tasks={this.props.tasks} option='completed' />}
             </section>
         );

@@ -7,7 +7,6 @@ import ListOfTasks from './ListOfTasks';
 import NewTaskForm from './NewTaskForm';
 import { ReactComponent as TitleIcon } from './TitleIcon.svg';
 import { gsap } from 'gsap';
-import { TweenMax } from 'gsap/gsap-core';
 
 class App extends Component {
 
@@ -21,7 +20,7 @@ class App extends Component {
       active: [],
       completed: [],
       failed: [],
-    }]
+    }],
   }
   // general variables
   // methods
@@ -68,6 +67,18 @@ class App extends Component {
     })
 
     localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
+  }
+
+  removeAllTask = () => {
+    localStorage.clear();
+    this.setState({
+      tasks: [{
+        active: [],
+        completed: [],
+        failed: [],
+      }],
+      taskWindowStatus: false,
+    });
   }
 
   deleteTask = (index, tasks, key) => {
@@ -146,7 +157,7 @@ class App extends Component {
       default:
         const err = new Error('sth wrong with popup');
         console.error(err);
-    }
+    };
   }
 
   closePopup = () => {
@@ -163,7 +174,7 @@ class App extends Component {
       popUpStatus: {
         isActive: true,
         insidePopUp: key,
-      }
+      },
     });
   }
 
@@ -181,16 +192,15 @@ class App extends Component {
     this.getLocalStorage();
     // animation of moon
     gsap.from(".moon", { scale: 0, transformOrigin: 'center', duration: .4 });
-    gsap.from(".crater1", { scale: 0, transformOrigin: 'center', duretion: .4, delay: .8, yoyo: true });
-    gsap.from(".crater2", { scale: 0, transformOrigin: 'center', duretion: .4, delay: 1.2 });
-    gsap.from(".crater3", { scale: 0, transformOrigin: 'center', duretion: .4, delay: 1.6 });
-    gsap.from(".crater4", { scale: 0, transformOrigin: 'center', duretion: .4, delay: 2 });
-    //animation of grass
+    gsap.from(".crater1", { scale: 0, transformOrigin: 'center', duration: .4, delay: .8 });
+    gsap.from(".crater2", { scale: 0, transformOrigin: 'center', duration: .4, delay: 1.2 });
+    gsap.from(".crater3", { scale: 0, transformOrigin: 'center', duration: .4, delay: 1.6 });
+    gsap.from(".crater4", { scale: 0, transformOrigin: 'center', duration: .4, delay: 2 });
+    // animation of grass
     gsap.from(".grass", { duration: 2.5, ease: "bounce.out", y: -1000, delay: 2 });
     // animation of stars
     gsap.from(".star1", { x: 100, y: -300, opacity: 0, duration: 1.5, });
     gsap.from(".star2", { x: 20, y: -200, opacity: 0, duration: 1.5, delay: 0.5 });
-
   }
 
   render() {
@@ -206,9 +216,9 @@ class App extends Component {
               <span className={`hamburger-box ${navBarStatus ? `hamburger--active` : null}`}><span className='hamburger-inner'></span></span>
             </button>
           </div>
-          {navBarStatus && <NavBar activatePopUp={this.activatePopup} popUpStatus={this.state.popUpStatus} />}
+          {navBarStatus && <NavBar activatePopUp={this.activatePopup} removeAllTask={this.removeAllTask} popUpStatus={this.state.popUpStatus} />}
         </section >
-        < EndedTasks finishedTask={this.finishedTask} deleteTask={this.deleteTask} tasks={this.state.tasks} getLocalStorage={this.getLocalStorage} taskWindowStatus={this.state.popUpStatus.isActive} />
+        < EndedTasks finishedTask={this.finishedTask} deleteTask={this.deleteTask} tasks={this.state.tasks} getLocalStorage={this.getLocalStorage} />
         { this.state.popUpStatus.isActive && this.showPopUp()}
       </>
     );

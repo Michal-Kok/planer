@@ -4,6 +4,7 @@
     background-color: #494949;
     padding: 0;
     z-index: 1;
+    overflow: hidden;
 }
 
 .navbar li:hover {
@@ -24,4 +25,33 @@
     cursor: pointer;
     transition: 0.4s;
     line-height: 80px;
+    visibility: visible;
+}
+
+.menuElement1 {
+    animation: menuElement .2s backwards;
+}
+
+.menuElement2 {
+    animation: menuElement .2s backwards .1s;
+}
+
+.menuElement3 {
+    animation: menuElement .2s backwards .15s;
+}
+
+.menuElement4 {
+    animation: menuElement .2s backwards .2s;
+}
+
+@keyframes menuElement {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0);
+        opacity: 1;
+    }
 }

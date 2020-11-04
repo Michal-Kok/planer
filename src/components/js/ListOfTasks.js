@@ -17,7 +17,7 @@ const ListOfTasks = (props) => {
             console.log(tasks);
             if (tasks.length) {
                 return (<div className='tasks'><ul>{tasks}</ul></div>);
-            } else return (<div className='emptyList'>There are not tasks here at all.<div className='emptyList-SVGContainer'><Emptiness /></div></div>);
+            } else return (<div className='emptyList'><p>There are not tasks here at all.</p><div className='emptyList-SVGContainer'><Emptiness /></div></div>);
         case 'completed':
             tasks = completed.map((task, index) => {
                 return (
@@ -26,7 +26,7 @@ const ListOfTasks = (props) => {
             });
             if (tasks.length) {
                 return (<div className='tasks'><ul>{tasks}</ul></div>);
-            } else return (<div className='emptyList'>There are not tasks here at all.<div className='emptyList-SVGContainer'><Emptiness /></div></div>);
+            } else return (<div className='emptyList'><p>There are not tasks here at all.</p><div className='emptyList-SVGContainer'><Emptiness /></div></div>);
 
         case 'failed':
             tasks = failed.map((task, index) => {
@@ -36,7 +36,7 @@ const ListOfTasks = (props) => {
             });
             if (tasks.length) {
                 return (<div className='tasks'><ul>{tasks}</ul></div>);
-            } else return (<div className='emptyList'>There are not tasks here at all.<div className='emptyList-SVGContainer'><Emptiness /></div></div>);
+            } else return (<div className='emptyList'><p>There are not tasks here at all.</p><div className='emptyList-SVGContainer'><Emptiness /></div></div>);
 
         case 'all':
             const allTasks = completed.concat(failed);
@@ -47,7 +47,7 @@ const ListOfTasks = (props) => {
             })
             if (tasks.length) {
                 return (<div className='tasks'><ul>{tasks}</ul></div>);
-            } else return (<div className='emptyList'>There are not tasks here at all.<div className='emptyList-SVGContainer'><Emptiness /></div></div>);
+            } else return (<div className='emptyList'><p>There are not tasks here at all.</p><div className='emptyList-SVGContainer'><Emptiness /></div></div>);
         default:
             const err = new Error('Problem with showing tasks');
             console.error(err);

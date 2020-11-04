@@ -14,18 +14,16 @@ class TaskWindow extends Component {
         })
     }
 
-
-
     render() {
         return (
-        <div className='task-window-div'>
-            <div className="button-container">
-                <button className='text-button task-window-button' onClick={this.handleClick} name='completed'>Completed tasks</button>
-                <button className='text-button task-window-button' onClick={this.handleClick} name='failed'>Failed Tasks</button>
-                <button className='text-button task-window-button' onClick={this.handleClick} name='all'>All tasks</button>
-            </div>
-            <ListOfTasks option={this.state.option} tasks={this.state.tasks} finishedTask={this.props.finishedTask} deleteTask={this.props.deleteTask} />
-        </div>);
+            <div className='task-window-div'>
+                <div className="button-container">
+                    <button className='text-button task-window-button' onClick={this.handleClick} name='completed'>Completed tasks</button>
+                    <button className='text-button task-window-button' onClick={this.handleClick} name='failed'>Failed Tasks</button>
+                    <button className='text-button task-window-button' onClick={this.handleClick} name='all'>All tasks</button>
+                </div>
+                <ListOfTasks option={this.state.option} tasks={this.state.tasks} finishedTask={this.props.finishedTask} deleteTask={this.props.deleteTask} />
+            </div>);
     }
 }
 
