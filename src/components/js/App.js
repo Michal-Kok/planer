@@ -218,7 +218,7 @@ class App extends Component {
           </div>
           {navBarStatus && <NavBar activatePopUp={this.activatePopup} removeAllTask={this.removeAllTask} popUpStatus={this.state.popUpStatus} />}
         </section >
-        < EndedTasks finishedTask={this.finishedTask} deleteTask={this.deleteTask} tasks={this.state.tasks} getLocalStorage={this.getLocalStorage} />
+        < EndedTasks finishedTask={this.finishedTask} deleteTask={this.deleteTask} tasks={this.state.tasks} getLocalStorage={this.getLocalStorage} isPopUpActive={!this.state.popUpStatus.isActive} />
         { this.state.popUpStatus.isActive && this.showPopUp()}
       </>
     );

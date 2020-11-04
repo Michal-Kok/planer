@@ -24,7 +24,7 @@ class EndedTasks extends Component {
         return (
             <section className="ended-tasks">
                 <button className='text-button show-taskWindow-button' onClick={this.handleClick} >{this.state.taskWindowStatus ? opened : closed}</button>
-                { this.state.taskWindowStatus && < TaskWindow deleteTask={this.props.deleteTask} finishedTask={this.props.finishedTask} tasks={this.props.tasks} option='completed' />}
+                { this.state.taskWindowStatus && this.props.isPopUpActive && < TaskWindow deleteTask={this.props.deleteTask} finishedTask={this.props.finishedTask} tasks={this.props.tasks} option='completed' />}
             </section>
         );
     }
