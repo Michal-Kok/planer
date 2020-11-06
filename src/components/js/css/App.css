@@ -3,12 +3,17 @@
   --hover-color: #494949;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   background-color: var(--main-bgc-color);
   color: white;
+  overflow: hidden;
 }
 
 .icon {
@@ -38,9 +43,10 @@ body {
 }
 
 .titleIcon-container {
-  width: 27rem;
-  height: 27rem;
-  padding-left: 4rem;
+  width: 31rem;
+  height: 31rem;
+  padding-left: 4.5rem;
+  padding-bottom: 1.5rem;
   margin-top: 0;
   margin-bottom: 0;
   overflow: hidden;
@@ -127,14 +133,20 @@ body {
 }
 
 .close-button {
-  display: inline-block;
-  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
   background-color: transparent;
   border: 0;
   font-size: 24px;
   padding: 3px;
   color: white;
   cursor: pointer;
+}
+
+.icon i {
+  font-size: 40px;
+  color: white;
 }
 
 .close-button:hover {
