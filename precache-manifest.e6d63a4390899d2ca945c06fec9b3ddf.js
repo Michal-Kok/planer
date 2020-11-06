@@ -1,27 +1,31 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b2186f2d75e07e0d0d221c7502d875c0",
+    "revision": "b069f1bf04d354a997252bc861e87a7b",
     "url": "/planer/index.html"
   },
   {
-    "revision": "c0f313af3023eb3b686e",
-    "url": "/planer/static/css/main.8e7a4eb6.chunk.css"
+    "revision": "5efe40e816759f98dcdc",
+    "url": "/planer/static/css/main.c5b80cff.chunk.css"
   },
   {
-    "revision": "b9823e9fde55db5644a9",
-    "url": "/planer/static/js/2.bc7b44ef.chunk.js"
+    "revision": "1c814ebbb804c73f894b",
+    "url": "/planer/static/js/2.db3c9840.chunk.js"
   },
   {
     "revision": "e9802b9a2325a939eb66bf2fa755fb0f",
-    "url": "/planer/static/js/2.bc7b44ef.chunk.js.LICENSE.txt"
+    "url": "/planer/static/js/2.db3c9840.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c0f313af3023eb3b686e",
-    "url": "/planer/static/js/main.54972f31.chunk.js"
+    "revision": "5efe40e816759f98dcdc",
+    "url": "/planer/static/js/main.1e8ab1d7.chunk.js"
   },
   {
     "revision": "1c416ba307162402cee8",
     "url": "/planer/static/js/runtime-main.8cc4f967.js"
+  },
+  {
+    "revision": "f41fee3dcbaafb0ae4a622543624cbf5",
+    "url": "/planer/static/media/AddedTaskSVG.f41fee3d.svg"
   },
   {
     "revision": "59a274d87c8b61d5e644c4d127ee3002",
