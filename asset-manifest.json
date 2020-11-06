@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/planer/static/css/main.c5b80cff.chunk.css",
+    "main.css": "/planer/static/css/main.4fcbe675.chunk.css",
     "main.js": "/planer/static/js/main.1e8ab1d7.chunk.js",
     "main.js.map": "/planer/static/js/main.1e8ab1d7.chunk.js.map",
     "runtime-main.js": "/planer/static/js/runtime-main.8cc4f967.js",
@@ -8,9 +8,9 @@
     "static/js/2.db3c9840.chunk.js": "/planer/static/js/2.db3c9840.chunk.js",
     "static/js/2.db3c9840.chunk.js.map": "/planer/static/js/2.db3c9840.chunk.js.map",
     "index.html": "/planer/index.html",
-    "precache-manifest.e6d63a4390899d2ca945c06fec9b3ddf.js": "/planer/precache-manifest.e6d63a4390899d2ca945c06fec9b3ddf.js",
+    "precache-manifest.0bd19558c579ac953501d22eebdd179e.js": "/planer/precache-manifest.0bd19558c579ac953501d22eebdd179e.js",
     "service-worker.js": "/planer/service-worker.js",
-    "static/css/main.c5b80cff.chunk.css.map": "/planer/static/css/main.c5b80cff.chunk.css.map",
+    "static/css/main.4fcbe675.chunk.css.map": "/planer/static/css/main.4fcbe675.chunk.css.map",
     "static/js/2.db3c9840.chunk.js.LICENSE.txt": "/planer/static/js/2.db3c9840.chunk.js.LICENSE.txt",
     "static/media/AddedTaskSVG.f41fee3d.svg": "/planer/static/media/AddedTaskSVG.f41fee3d.svg",
     "static/media/TitleIcon.59a274d8.svg": "/planer/static/media/TitleIcon.59a274d8.svg",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.8cc4f967.js",
     "static/js/2.db3c9840.chunk.js",
-    "static/css/main.c5b80cff.chunk.css",
+    "static/css/main.4fcbe675.chunk.css",
     "static/js/main.1e8ab1d7.chunk.js"
   ]
 }
