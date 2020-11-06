@@ -122,7 +122,8 @@ body {
   border-radius: 15px;
   text-align: center;
   z-index: 2;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .close-button {
@@ -140,36 +141,28 @@ body {
   color: rgb(224, 223, 220);
 }
 
-@keyframes grass {
-  0% {
-    transform: translateY(-300px);
-  }
+::-webkit-scrollbar {
+  width: .5em;
+  background-color: transparent;
+  border-radius: 50px;
+}
 
-  50% {
-    transform: translateY(0);
-  }
+::-webkit-scrollbar-thumb {
+  background-color: rgb(104, 103, 103);
+  opacity: .7;
+  border-radius: 50px;
+}
 
-  75% {
-    transform: translateY(-100px);
-  }
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
 
-  80% {
-    transform: translateY(0);
-  }
+.popup::-webkit-scrollbar-thumb {
+  background-color: #494949;
+}
 
-  85% {
-    transform: translateY(-30px);
-  }
-
-  90% {
-    transform: translateY(-15px);
-  }
-
-  93% {
-    transform: translateY(-4px);
-  }
-
-  95% {
-    transform: translate(0);
-  }
+.popup::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 50px;
+  margin: 7px;
 }

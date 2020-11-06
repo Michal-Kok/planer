@@ -1,4 +1,3 @@
-import gsap from 'gsap/gsap-core';
 import React from 'react';
 import { ReactComponent as Emptiness } from './emptiness.svg'
 const ListOfTasks = (props) => {
@@ -14,7 +13,6 @@ const ListOfTasks = (props) => {
                     <li key={index}><span>{task.content}</span> <div className='tasks-button-container'><button className='tasks-actionButton' onClick={() => finishedTask(index, active, 'success')}>Done</button> <button className='tasks-actionButton' onClick={() => finishedTask(index, active, 'failour')}>Missed</button> <button className='tasks-actionButton' onClick={() => deleteTask(index, active, 'active')}>Delete</button></div></li>
                 );
             });
-            console.log(tasks);
             if (tasks.length) {
                 return (<div className='tasks'><ul>{tasks}</ul></div>);
             } else return (<div className='emptyList'><p>There are not tasks here at all.</p><div className='emptyList-SVGContainer'><Emptiness /></div></div>);

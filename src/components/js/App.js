@@ -77,7 +77,6 @@ class App extends Component {
         completed: [],
         failed: [],
       }],
-      taskWindowStatus: false,
     });
   }
 
@@ -97,7 +96,7 @@ class App extends Component {
         break;
       default:
         const err = new Error('mistake during splicing elements.');
-        console.log(err);
+        console.error(err);
     }
     this.setState({
       tasks: [{
@@ -111,6 +110,7 @@ class App extends Component {
 
   finishedTask = (index, tasks, status) => {
     let { active, completed, failed } = this.state.tasks[0];
+    // zastanów się czy [0] ma sens :D
     const finishedTask = tasks.splice(index, 1)[0];
     active = tasks;
 
@@ -131,7 +131,8 @@ class App extends Component {
         completed,
         failed,
       }]
-    })
+    });
+    localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
   }
 
   showPopUp = () => {

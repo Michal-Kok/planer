@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListOfTasks from './ListOfTasks';
 import './css/TaskWindow.css';
+import { Scrollbars } from 'react-custom-scrollbars'
 
 class TaskWindow extends Component {
     state = {
@@ -22,7 +23,9 @@ class TaskWindow extends Component {
                     <button className='text-button task-window-button' onClick={this.handleClick} name='failed'>Failed Tasks</button>
                     <button className='text-button task-window-button' onClick={this.handleClick} name='all'>All tasks</button>
                 </div>
-                <ListOfTasks option={this.state.option} tasks={this.state.tasks} finishedTask={this.props.finishedTask} deleteTask={this.props.deleteTask} />
+                <div className='listOfTask-container'>
+                    <ListOfTasks option={this.state.option} tasks={this.state.tasks} finishedTask={this.props.finishedTask} deleteTask={this.props.deleteTask} />
+                </div>
             </div>);
     }
 }
